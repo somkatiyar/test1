@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="header">
+        <span>
+            <h4>Billing system</h4>
+        </span>
+        <span style="margin-top: 10px; cursor: pointer;" onclick="productList()">
+            <h5>New Bill</h5>
+        </span>
+
+    </div>
+
+
+
+
+
+    <div class="container" id='mainDiv' style="display: none;">
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-2">
+                <h3>Product List</h3>
+            </div>
+            <div class="col-md-5"></div>
+        </div> <br>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                <h5>Filter ProductBy:</h5>
+            </div>
+            <div class="col-md-3">
+                <select id="category" onchange="filterProduct()">
+                    <option value="" selected>Select Category</option>
+                    <option value="Beverages">Beverages</option>
+                    <option value="Chocolates">Chocolates</option>
+                    <option value="Biscuits">Biscuits</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                    <select id="instock" onchange="filterProduct()">
+                            <option value=""  selected>Select Instock</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+            </div>
+            <div class="col-md-3">
+                    <select id="range" onchange="filterProduct()">
+                            <option value="" selected>Select Price in range</option>
+                            <option value="lt10"> &lt 10 </option>
+                            <option value="1020">10-20</option>
+                            <option value="gt20">&gt 20</option>
+                        </select>
+            </div>
+        </div>
+
+        <table class="table">
+                <thead >
+                  <tr>
+                    <th onclick="sortHeader('code')">Code</th>
+                    <th onclick="sortHeader('product')">Product</th>
+                    <th onclick="sortHeader('category')">Category</th>
+                    <th onclick="sortHeader('price')">Price</th>
+                    <th onclick="sortHeader('inStock')">InStock</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="productList">
+             
+                </tbody>
+        </table>
+
+
+    </div>
+
+
+
+  
+ 
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="var.js"></script>
+    <script src="product.js"></script>
+</body>
+
+</html>

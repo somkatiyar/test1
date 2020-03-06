@@ -1,0 +1,182 @@
+var max =0;
+var min = 0;
+
+function productList() {
+showList()
+}
+
+function showList() {
+    var temp = products;
+    var listContent = '';
+    document.getElementById('mainDiv').style.display = 'block';
+    document.getElementById('productList').innerHTML = '';
+
+    temp.forEach(element => {
+    
+
+        listContent+=`
+        <tr>
+        <td>
+        ${element.code}
+        </td>
+        <td>
+        ${element.prod}
+        </td>
+        <td>
+        ${element.category}
+        </td>
+        <td>
+        ${element.price}
+        </td>
+        <td>
+        ${element.instock}
+        </td>
+        <td>
+        <button>Add To Bill</button>
+        </td>
+        </tr>
+        `
+    })
+
+document.getElementById('productList').innerHTML = listContent;
+temp = '';
+}
+
+function filterProduct() {
+    var tempProduct = products;
+    var cat = document.getElementById('category').value;
+    var instock = document.getElementById('instock').value;
+    var range = document.getElementById('range').value;
+
+  
+
+
+    var list = '';
+
+if(cat && instock && range) {
+    rangeSelect();
+     list =   tempProduct.filter(element =>{
+        return (element.category == cat && element.instock == instock && element.price<max && element.price>min  )
+    })
+} else if(cat && instock ) {
+
+    list =   tempProduct.filter(element =>{
+        return (element.category == cat && element.instock == instock  )
+    })
+} 
+else if(cat && range ) {
+    rangeSelect();
+    list =   tempProduct.filter(element =>{
+        return (element.category == cat && element.price<max && element.price>min  )
+    })
+} 
+else if(range && instock ) {
+    rangeSelect();
+    list =   tempProduct.filter(element =>{
+        return (element.instock == instock && element.price<max && element.price>min  )
+    })
+} 
+else if(cat ) {
+
+    list =   tempProduct.filter(element =>{
+        return (element.category == cat )
+    })
+} 
+else if(instock ) {
+   
+    list =   tempProduct.filter(element =>{
+        return (element.instock == instock)
+    })
+} 
+else if(range) {
+
+rangeSelect();
+
+
+    list =   tempProduct.filter(element =>{
+        return (element.price<max && element.price>min )
+    })
+
+    
+} 
+else {
+
+    return;
+}
+
+showFilterList(list); 
+cat = '';
+instock = '';
+range = '';
+
+}
+
+
+function rangeSelect() {
+    var range = document.getElementById('range').value;
+    if(range == 'lt10') {
+       
+        max = 10;
+        min = 0;
+        
+    }
+    if(range == '1020') {
+        max = 21;
+        min = 9;
+        
+    }
+    if(range == 'gt20') {
+        max = 40;
+        min = 20;
+        
+    }
+    if(range == '') {
+        alert('m')
+        max = 50;
+        min = 0;
+        
+    }
+    }
+
+function showFilterList(list) {
+    var listContent = '';
+    document.getElementById('productList').innerHTML = '';
+
+    list.forEach(element => {
+    
+        listContent+=`
+        <tr>
+        <td>
+        ${element.code}
+        </td>
+        <td>
+        ${element.prod}
+        </td>
+        <td>
+        ${element.category}
+        </td>
+        <td>
+        ${element.price}
+        </td>
+        <td>
+        ${element.instock}
+        </td>
+        <td>
+        <button>Add To Bill</button>
+        </td>
+        </tr>
+        `
+    })
+
+document.getElementById('productList').innerHTML = listContent;
+list = '';
+
+}
+
+
+function sortHeader(sortKey) {
+
+  
+
+
+}

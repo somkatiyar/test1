@@ -1,0 +1,24 @@
+.header {
+    margin: 10px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    display: flex;
+}
+h4{
+    padding: 9px;
+}
+select {
+    text-transform: none;
+    border-radius: 3px;
+    width: 205px;
+}
+
+.table thead{
+background-color: black;
+color: white;
+}
+
+button {
+    background-color: #9e9b9b;
+}
